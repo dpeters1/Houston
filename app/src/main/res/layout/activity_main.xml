@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="com.dompeters.houston.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/connectionBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/gauges">
+
+        <TextView
+            android:id="@+id/conStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="No Connection to Controller"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="@android:color/background_light" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/graphLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/connectionBar"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/powerGraph"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/telemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/graphLayout"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/powerGaugeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.sccomponents.gauges.ScArcGauge xmlns:sc="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/powerGauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:padding="10dp"
+                    sc:progressColor="@color/gauges"
+                    sc:progressSize="10dp"
+                    sc:strokeColor="#585258"
+                    sc:strokeSize="2dp" />
+
+                <TextView
+                    android:id="@+id/powerMeter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="42dp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal"
+                    android:text="Power (W)"
+                    android:textSize="18sp" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/Voltage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Voltage (V)" />
+
+            <TextView
+                android:id="@+id/consumption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Avg. Output (W)" />
+
+            <TextView
+                android:id="@+id/escTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="ESC Temp (C)" />
+
+            <TextView
+                android:id="@+id/tripTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Trip Time" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:id="@+id/batteryGaugeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.sccomponents.gauges.ScArcGauge xmlns:sc="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/batteryGauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:padding="10dp"
+                    sc:progressColor="@color/gauges"
+                    sc:progressSize="10dp"
+                    sc:strokeColor="#585258"
+                    sc:strokeSize="2dp" />
+
+                <TextView
+                    android:id="@+id/batteryMeter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="42dp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal"
+                    android:text="Charge (%)"
+                    android:textSize="18sp" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/Current"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Current (A)" />
+
+            <TextView
+                android:id="@+id/throttle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Throttle (%)" />
+
+            <TextView
+                android:id="@+id/battTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Battery Temp (C)" />
+
+            <TextView
+                android:id="@+id/remTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Est. Runtime" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/graphTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/graphLayout"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <SeekBar
+        android:id="@+id/trimSeekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/telemLayout"
+        android:layout_alignLeft="@+id/telemLayout"
+        android:layout_alignRight="@+id/telemLayout"
+        android:layout_alignStart="@+id/telemLayout"
+        android:layout_below="@+id/telemLayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:max="20"
+        android:progress="10"
+        android:progressDrawable="@drawable/throttle_progress"
+        android:splitTrack="false"
+        android:thumb="@drawable/throttle_thumb" />
+
+    <TextView
+        android:id="@+id/trimTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trimSeekbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Steering Trim" />
+
+</RelativeLayout>

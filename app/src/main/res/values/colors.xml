@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#ba4045</color>
+    <color name="colorAccent">#ff0004</color>
+    <color name="greenConn">#b300681d</color>
+    <color name="redConn">#9e0003</color>
+    <color name="greenConnDark">#cd00681d</color>
+    <color name="gauges">#d6484e</color>
+    <color name="gaugesDark">#ba4045</color>
+</resources>
