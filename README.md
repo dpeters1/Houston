@@ -1,4 +1,4 @@
 # Houston
 Android App for Control and Telemetry of the E-Kayak
 
-www.dominicpeters.ca/e-kayak
+www.dominicpeters.ca/projects/ekayak
